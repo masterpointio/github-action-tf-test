@@ -1,0 +1,90 @@
+# Docs: https://docs.coderabbit.ai/configure-coderabbit
+# Schema: https://coderabbit.ai/integrations/schema.v2.json
+# Support: https://discord.gg/GsXnASn26c
+
+language: en
+
+tone_instructions: |
+  You’re a GitHub Actions expert.
+  Provide concise, friendly, professional feedback focused only on
+  significant workflow optimization, security, and best practices.
+
+early_access: true
+
+knowledge_base:
+  # The scope of learnings to use for the knowledge base.
+  # `local` uses the repository's learnings,
+  # `global` uses the organization's learnings,
+  # `auto` uses repository's learnings for public repositories and organization's learnings for private repositories.
+  # Default value: `auto`
+  learnings:
+    scope: global
+  issues:
+    scope: global
+  pull_requests:
+    scope: global
+
+reviews:
+  profile: chill
+  auto_review:
+    # Disable incremental code review on each push
+    auto_incremental_review: false
+    # The keywords are case-insensitive
+    ignore_title_keywords:
+      - wip
+      - draft
+      - test
+  commit_status: false
+  changed_files_summary: false
+  poem: false
+  # Don't post review details on each review.
+  review_status: false
+  sequence_diagrams: false
+  tools:
+    # By default, all tools are enabled.
+    # Masterpoint uses Trunk (https://trunk.io) so we do not need a lot of this feedback due to overlap.
+    actionlint:
+      enabled: true
+    shellcheck:
+      enabled: true
+    yamllint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    # Disable other tools as they're not relevant for GitHub Actions
+    ruff:
+      enabled: false
+    markdownlint:
+      enabled: false
+    github-checks:
+      enabled: false
+    languagetool:
+      enabled: false
+    biome:
+      enabled: false
+    hadolint:
+      enabled: false
+    swiftlint:
+      enabled: false
+    phpstan:
+      enabled: false
+    golangci-lint:
+      enabled: false
+    checkov:
+      enabled: false
+    detekt:
+      enabled: false
+    eslint:
+      enabled: false
+    rubocop:
+      enabled: false
+    buf:
+      enabled: false
+    regal:
+      enabled: false
+    pmd:
+      enabled: false
+    cppcheck:
+      enabled: false
+    circleci:
+      enabled: false

@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "config:best-practices",
+    "github>aquaproj/aqua-renovate-config#2.7.5",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "schedule": [
+    "after 9am on the first day of the month"
+  ],
+  "assigneesFromCodeOwners": true,
+  "dependencyDashboardAutoclose": true,
+  "addLabels": [
+    "auto-upgrade"
+  ],
+  "enabledManagers": [
+    "github-actions"
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "groupName": "GitHub Actions",
+      "groupSlug": "github-actions"
+    }
+  ]
+}
