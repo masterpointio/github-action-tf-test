@@ -3,7 +3,9 @@ description: |
   Reusable GitHub Action to test Terraform/OpenTofu modules.
   AWS role ARN can be provided either:
   1. As an input parameter (aws_role_arn) - takes precedence
-  2. As an environment variable (TF_TEST_AWS_ROLE_ARN)
+  2. As an environment variable (TF_TEST_AWS_ROLE_ARN).
+     The use case for this is setting it in the GitHub organization's environment variable.
+     See the README for more details.
 author: hello@masterpoint.io
 inputs:
   tf_type:
