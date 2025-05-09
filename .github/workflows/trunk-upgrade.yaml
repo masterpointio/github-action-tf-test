@@ -27,7 +27,7 @@ jobs:
           private_key: ${{ secrets.MP_BOT_APP_PRIVATE_KEY }}
 
       - name: Upgrade
-        uses: trunk-io/trunk-action/upgrade@4d5ecc89b2691705fd08c747c78652d2fc806a94 # v1.1.19
+        uses: trunk-io/trunk-action/upgrade@12243abae10c54b42a32cb25a465023c66e40e5b # v1.2.1
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
           reviewers: "@masterpointio/masterpoint-internal"
