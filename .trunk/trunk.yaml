@@ -24,6 +24,11 @@ lint:
     - prettier@3.6.2
     - trufflehog@3.90.5
     - yamllint@1.37.1
+  ignore:
+    # Ignore CHANGELOG.md as release-please manages this file
+    - linters: [ALL]
+      paths:
+        - "**/CHANGELOG.md"
 actions:
   enabled:
     - trunk-announce
