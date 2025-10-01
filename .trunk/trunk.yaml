@@ -18,11 +18,11 @@ runtimes:
 lint:
   enabled:
     - actionlint@1.7.7
-    - checkov@3.2.467
+    - checkov@3.2.473
     - git-diff-check
     - markdownlint@0.45.0
     - prettier@3.6.2
-    - trufflehog@3.90.5
+    - trufflehog@3.90.8
     - yamllint@1.37.1
   ignore:
     # Ignore CHANGELOG.md as release-please manages this file
