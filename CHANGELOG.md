@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/masterpointio/github-action-tf-test/compare/v1.0.1...v1.0.2) (2026-05-05)
+
+
+### Bug Fixes
+
+* pin GitHub Actions to commit SHAs (INT-326) ([#33](https://github.com/masterpointio/github-action-tf-test/issues/33)) ([8dc20b2](https://github.com/masterpointio/github-action-tf-test/commit/8dc20b2863e2c09842294c7ecb194cc0423cabc9))
+
 ## [1.0.1](https://github.com/masterpointio/github-action-tf-test/compare/v1.0.0...v1.0.1) (2025-09-03)
 
 
