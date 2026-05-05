@@ -1,8 +1,7 @@
 {
   "extends": [
     "config:best-practices",
-    "github>aquaproj/aqua-renovate-config#2.7.5",
-    "helpers:pinGitHubActionDigests"
+    "github>aquaproj/aqua-renovate-config#2.7.5"
   ],
   "schedule": [
     "after 9am on the first day of the month"
@@ -12,6 +11,7 @@
   "addLabels": [
     "auto-upgrade"
   ],
+  "minimumReleaseAge": "3 days",
   "enabledManagers": [
     "github-actions"
   ],
