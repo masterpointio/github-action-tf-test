@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/masterpointio/github-action-tf-test/compare/v1.0.1...v1.1.0) (2026-09-21)
+
+
+### Features
+
+* add working_directory input ([#49](https://github.com/masterpointio/github-action-tf-test/issues/49)) ([0350841](https://github.com/masterpointio/github-action-tf-test/commit/03508417b049fffe946c13ce44db497b5593f51d))
+
+
+### Bug Fixes
+
+* pin GitHub Actions to commit SHAs (INT-326) ([#33](https://github.com/masterpointio/github-action-tf-test/issues/33)) ([8dc20b2](https://github.com/masterpointio/github-action-tf-test/commit/8dc20b2863e2c09842294c7ecb194cc0423cabc9))
+
 ## [1.0.1](https://github.com/masterpointio/github-action-tf-test/compare/v1.0.0...v1.0.1) (2025-09-03)
 
 
