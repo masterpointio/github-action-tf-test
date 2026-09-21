@@ -17,6 +17,7 @@ This action:
 - Aqua-based dependency management
 - Caching for faster execution
 - Configurable AWS region and role session name
+- Runs against any directory in the repository, so monorepos can test each module
 
 ## Usage
 
@@ -45,6 +46,31 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+### Monorepos
+
+`working_directory` selects which module to test. Combine it with a matrix to test several
+modules in parallel:
+
+```yaml
+jobs:
+  tf-test:
+    name: 🧪 ${{ matrix.tf }} test (${{ matrix.module }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tf: [tofu, terraform]
+        module: [child-modules/random-pet, child-modules/s3-bucket]
+    steps:
+      - uses: masterpointio/github-action-tf-test/action.yaml@v1.0.0
+        with:
+          tf_type: ${{ matrix.tf }}
+          working_directory: ${{ matrix.module }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+```
+
+Aqua still resolves `aqua.yaml` from the repository root, so the pinned CLI versions stay
+consistent across every module.
+
 ### AWS Configuration
 
 The action supports AWS authentication in two ways:
@@ -69,6 +95,7 @@ The action supports AWS authentication in two ways:
 | `aws_role_arn`      | No       | -                       | AWS role ARN to assume for testing (takes precedence over `TF_TEST_AWS_ROLE_ARN` env var) |
 | `aws_region`        | No       | `us-east-1`             | AWS region to use                                                                         |
 | `github_token`      | Yes      | -                       | GitHub token for checkout                                                                 |
+| `working_directory` | No       | `.`                     | Directory to run the tests from, relative to the repository root                          |
 | `role_session_name` | No       | `GitHubActions-TF-Test` | AWS role session name for OIDC authentication                                             |
 
 ### Required Permissions
@@ -89,7 +116,7 @@ permissions:
 1. **Checkout**: Clones your repository
 2. **Aqua Setup**: Installs and configures Aqua for dependency management
 3. **AWS Configuration**: Sets up AWS credentials using OIDC
-4. **Test Execution**: Runs `terraform init` and `terraform test` (or equivalent for OpenTofu)
+4. **Test Execution**: Runs `terraform init` and `terraform test` (or equivalent for OpenTofu) in `working_directory`
 
 ## Dependencies
 
