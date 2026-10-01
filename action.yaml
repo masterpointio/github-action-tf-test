@@ -62,7 +62,7 @@ runs:
     - name: Install Aqua
       uses: aquaproj/aqua-installer@96a9bc20066c5bf5e275b41019cfc165b25f4e2e # v4.0.5
       with:
-        aqua_version: v2.48.1
+        aqua_version: v2.63.0
 
     - name: Aqua Install
       shell: bash
@@ -70,7 +70,7 @@ runs:
 
     - name: Configure AWS Credentials
       if: ${{ inputs.aws_role_arn != '' || env.TF_TEST_AWS_ROLE_ARN != '' }}
-      uses: aws-actions/configure-aws-credentials@e6de054238d6b7531b4efff3b6587d9aade6a06c # v6.2.3
+      uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
       with:
         role-to-assume: ${{ inputs.aws_role_arn || env.TF_TEST_AWS_ROLE_ARN }}
         role-session-name: ${{ inputs.role_session_name }}
